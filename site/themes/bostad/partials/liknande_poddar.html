@@ -1,0 +1,25 @@
+<!-- Related Posts -->
+<section class="section related-posts mt-40 mb-0">
+	<div class="title-wrap title-wrap--line title-wrap--pr">
+	  <h3 class="section-title">Liknande nyheter</h3>
+	</div>
+
+	<!-- Slider -->
+	<div id="owl-posts-3-items" class="owl-carousel owl-theme owl-carousel--arrows-outside">
+
+	  {{ collection:articles limit="10" :id:aint="id" artikel_typ:aint="nyhet" artikel_typ:aint="reportage" }}
+	    <article class="entry thumb thumb--size-1">
+	      <div class="entry__img-holder thumb__img-holder" style="background-image: url('{{ glide:intro_image width='400' }}');">
+	        <div class="bottom-gradient"></div>
+	        <div class="thumb-text-holder">   
+	          <h2 class="thumb-entry-title">
+	            <a href="{{ url }}">{{ title }}</a>
+	          </h2>
+	        </div>
+	        <a href="{{ url }}" class="thumb-url"></a>
+	      </div>
+	    </article>
+	  {{ /collection:articles }}
+	</div> <!-- end slider -->
+
+</section> <!-- end related posts -->  

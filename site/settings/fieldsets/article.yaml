@@ -1,0 +1,165 @@
+title: Article
+hide: true
+sections:
+  main:
+    display: Main
+    fields:
+      title:
+        type: text
+        localizable: true
+      ingress:
+        settings: Basic
+        restrict_assets: false
+        type: redactor
+        display: Ingress
+      intro_image:
+        type: assets
+        display: 'Intro Image'
+        container: main
+        folder: img
+        max_files: 1
+      long_form:
+        type: bard
+        display: Article
+        sets:
+          image:
+            display: Image
+            fields:
+              photo:
+                display: Photo
+                type: assets
+                container: main
+                folder: img
+                max_files: 1
+              caption:
+                type: text
+              size:
+                type: radio
+                default: Normal
+                options:
+                  Normal: Normal
+                  Oversized: Oversized
+          quote:
+            display: 'Pull Quote'
+            fields:
+              quote:
+                display: 'The Quote'
+                type: markdown
+              cite:
+                type: text
+                display: Cite
+          fact_table:
+            display: 'Fact table'
+            fields:
+              tabell:
+                type: table
+                display: Tabell
+          list:
+            display: List
+            fields:
+              rubrik:
+                type: text
+                width: 50
+                display: Rubrik
+              list:
+                type: list
+                width: 50
+                display: List
+          video_player:
+            display: 'Video player'
+            instructions: 'Lägg till video'
+            fields:
+              video_field:
+                type: video
+                display: 'Video Field'
+        clean_pasted_html: true
+      template:
+        type: hidden
+        default: articles/article
+  annat:
+    display: Annat
+    fields:
+      tags:
+        type: tags
+        display: Tag
+        width: 50
+      categories:
+        max_items: 1
+        label: '{{ title }} ({{ count }})'
+        taxonomy: categories
+        mode: panes
+        type: taxonomy
+        display: Kategori
+        width: 50
+      sponsored:
+        type: toggle
+        display: Sponsrad
+        width: 25
+      hide_from_home:
+        type: toggle
+        display: 'Uteslut från Framsida'
+        width: 25
+      artikel_typ:
+        options:
+          nyhet: Nyhet
+          reportage: Reportage
+          podd: Podd
+          vlog: Vlogg
+        inline: false
+        type: radio
+        width: 50
+        display: 'Artikel Typ'
+        default: nyhet
+      views:
+        type: integer
+        width: 25
+        display: Visningar
+        default: '0'
+      puff_font_size:
+        type: integer
+        width: 33
+        display: 'Puff storlek rubrik'
+        default: '24'
+      article_font_size:
+        type: integer
+        width: 33
+        display: 'Artikel Storlek rubrik'
+        default: '24'
+      topnews_font_size:
+        type: integer
+        width: 33
+        display: 'Utvald nyhet storlek rubrik'
+        default: '48'
+      video:
+        type: video
+        display: Video
+        show_when:
+          artikel_typ: vlog
+      podd:
+        type: textarea
+        display: Podd
+        show_when:
+          artikel_typ: podd
+      region:
+        label: '{{ title }}'
+        collection:
+          - region
+        mode: panes
+        type: collection
+        display: Regioner
+  annonsering:
+    display: Annonsering
+    fields:
+      clicks:
+        type: integer
+        width: 33
+        display: Klick
+        default: '0'
+      destination_url:
+        type: text
+        display: Url
+      link:
+        type: hidden
+        default: '1'
+taxonomies: false
+create_title: 'Skapa artikel'

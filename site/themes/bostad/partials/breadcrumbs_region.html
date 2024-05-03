@@ -1,0 +1,25 @@
+<!-- Breadcrumbs -->
+    <div class="container">
+		<ul class="breadcrumbs">
+		    	<li class="breadcrumbs__item">
+					<a href="/" class="breadcrumbs__url">Hem</a>
+				</li>
+
+
+	    	<li class="breadcrumbs__item">
+					<a href="/region/{{segment_2}}" class="breadcrumbs__url">{{collection:region :slug:is="segment_2" scope="seg"}}{{ seg:title }}{{/collection:region}}</a>
+				</li>
+
+
+	    	<li class="breadcrumbs__item">
+					<a href="/region/{{segment_2}}/{{segment_3}}" class="breadcrumbs__url">{{taxonomy:categories :slug:is="segment_3" scope="seg"}}{{ seg:title }}{{/taxonomy:categories}}</a>
+				</li>
+
+				<li class="breadcrumbs__item breadcrumbs__item--current">
+					{{ title }}
+				</li>
+
+
+		</ul>
+
+    </div>

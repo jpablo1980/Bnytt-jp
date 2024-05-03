@@ -1,0 +1,39 @@
+
+    <!-- Breadcrumbs -->
+    <div class="container">
+      <ul class="breadcrumbs">
+        <li class="breadcrumbs__item">
+          <a href="index.html" class="breadcrumbs__url">Home</a>
+        </li>
+        <li class="breadcrumbs__item">
+          <a href="index.html" class="breadcrumbs__url">News</a>
+        </li>
+        <li class="breadcrumbs__item breadcrumbs__item--current">
+          World
+        </li>
+      </ul>
+    </div>
+
+    <div class="main-container container" id="main-container">            
+      <!-- post content -->
+      <div class="blog__content mb-72">
+        <h1 class="page-title">{{ title }}</h1>
+        {{ if intro_image  }}
+              <div class="entry__img-holder">
+                  <img src="{{ glide:intro_image width='800' height='500' fit='crop' }}" alt="{{ intro_image }}" class="page-featured-img">
+
+              </div>
+              <small class="text-muted">{{ assets:intro_image }} {{ alt }} {{ /assets:intro_image }}</small>
+        {{ endif }}
+
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="entry__article">
+
+              {{ innehall }}
+
+            </div>
+          </div>
+        </div>
+      </div> <!-- end post content -->
+    </div>

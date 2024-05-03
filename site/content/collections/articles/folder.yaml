@@ -1,0 +1,19 @@
+title: Artiklar
+order: date
+fieldset: article
+template: articles/article
+columns:
+  - title
+  - categories
+  - region.title
+  - artikel_typ
+  - tags
+  - views
+  - date
+searchable:
+  - title
+  - long_form
+  - ingress
+seo:
+  description: '@seo:ingress'
+  image: '@seo:intro_image'

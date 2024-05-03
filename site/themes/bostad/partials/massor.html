@@ -1,0 +1,47 @@
+
+
+
+{{ collection:ads typ:is="fairs" sort="number" }}
+<aside class="widget widget_media_image">
+	<a href="/!/ads/ad/{{ id }}" target="_blank">
+ 		<img style="background-color: white" src="{{ bild }}" alt="">
+	 </a>
+</aside>
+{{ /collection:ads  }}
+
+<aside class="widget widget-rating-posts">
+    <h4 class="widget-title">Sponsrade nyheter</h4>
+{{ collection:articles limit="4" sponsored:is="true" }}
+
+<article class="entry">
+      <div class="entry__img-holder">
+        <a href="{{url}}">
+          <div class="thumb-container thumb-60">
+            <img data-src="{{ glide:intro_image width='318' height='189' fit='crop' q='80' }}" src="{{ glide:intro_image width='318' height='189' fit='crop' q='80' }}" class="entry__img lazyloaded" alt="">
+          </div>
+        </a>
+      </div>
+
+      <div class="entry__body">
+        <div class="entry__header">
+          
+          <h2 class="entry__title" style="font-size:22px;">
+            <a href="{{url}}">{{title}}</a>
+          </h2>
+          <ul class="entry__meta">
+	          <!-- <li class="entry__meta-views">
+	            <i class="ui-eye"></i>
+	            <span>{{ views }}</span>
+                  </li> -->
+	          <li class="entry__meta-date">
+	                   	{{ date format="M j, Y" }}
+	          </li>
+	        </ul>
+          
+        </div>
+      </div>
+    </article>
+
+{{ /collection:articles }}
+    
+  </aside>

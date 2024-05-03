@@ -1,0 +1,21 @@
+feeds:
+  -
+    route: /feeds/articles
+    type: atom
+    title: Nyheter
+    collections:
+      - articles
+    author_field: author
+    custom_content: true
+    content: '{{ingress}}'
+  -
+    route: /feeds/twitter
+    type: atom
+    title: news
+    collections:
+      - articles
+    author_field: author
+    custom_content: true
+    content: |
+      ingress: "{{ingress}}",
+      intro_image: "{{intro_image}}"

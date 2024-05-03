@@ -1,0 +1,22 @@
+routes:
+  '/region/{region_slug}/{category_slug}':
+    template: nyheter_region
+    layout: region_nyhet
+  '/region/{region_slug}/{category_slug}/{year}-{month}-{day}-{article_slug}':
+    template: /articles/test
+    layout: region_article
+  /search: search
+  /sok:
+    template: sok
+    title: Sökresultat
+  /users: user/index
+  '/users/{username}': user/profile
+  /account: user/account
+  /login: auth/login
+  /forgot-password: auth/password-forgot
+  /reset-password: auth/password-reset
+collections:
+  articles: '/nyheter/{categories}/{year}-{month}-{day}-{slug}'
+  region: '/region/{slug}'
+redirect:
+  /nyheter/rantor/2020-12-15-sbab-och-nordeas-chefsekonomer-om-bomarknaden-2020-och-framoever: /nyheter/rantor/2020-12-19-sbab-och-nordeas-chefsekonomer-om-bomarknaden-2020-och-framoever

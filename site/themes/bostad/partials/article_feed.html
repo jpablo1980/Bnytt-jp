@@ -1,0 +1,80 @@
+{{ if index == 3 }}
+{{ partial:sponsored_feed }}
+{{ endif }}
+<article class="entry card post-list {{ if sponsored }}sponsored{{ endif }}">
+  {{ if sponsored }}
+  <div class="flik">
+    <span>
+      Sponsrad nyhet
+    </span>
+  </div>
+  {{ endif }}
+
+  <div
+    class="entry__img-holder post-list__img-holder card__img-holder"
+    style="background-image: url({{ glide:intro_image width='400' }})">
+    <a href="{{ url }}" class="thumb-url"></a>
+    <img
+      data-src="{{ glide:intro_image width='400' fit='crop' q='90' }}"
+      src="/img/empty.png"
+      alt=""
+      class="entry__img d-none lazyload" />
+
+    <a
+      class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner entry__meta-category--blue"
+      href="/nyheter/{{ categories }}{{ slug }}{{ /categories }}">
+      {{ categories }}
+      {{ title }}
+      {{ /categories }}
+    </a>
+  </div>
+
+  <div class="entry__body post-list__body card__body">
+    <div class="entry__header">
+      <h2 class="entry__title">
+        {{ if puff_font_size }}
+        <a href="{{ url }}" style="font-size: {{ puff_font_size }}px;">
+          {{ title }}
+        </a>
+        {{ else }}
+        <a href="{{ url }}">{{ title }}</a>
+        {{ endif }}
+      </h2>
+
+      <div class="ingress">
+        {{ ingress }}
+      </div>
+      <ul class="entry__meta">
+        <!-- <li class="entry__meta-views">
+          <i class="ui-eye"></i>
+          <span>{{ views }}</span>
+        </li> -->
+        <li class="entry__meta-date">
+          {{ if date }}
+          {{ date format="M j, Y" }}
+          {{ /if }}
+        </li>
+      </ul>
+    </div>
+    <div class="entry__excerpt">
+      {{ tag:long_form where="type:text" limit="1" }}
+      <p>{{ text | macro: summary }}</p>
+      {{ /tag:long_form }}
+    </div>
+  </div>
+</article>
+
+{{ if index == 3 }}
+
+<div
+  class="annons text-center pb-20 mb-20"
+  style="margin-bottom:20px;"
+  v-if="newsFeedAd">
+  <a
+    :href="'/!/ads/ad/' + newsFeedAd.id"
+    target="_blank"
+    onclick="gaTrackEvent('Annons', 'click', 'TopBanner');"
+    ><img :src="newsFeedAd.bild" alt style="border:1px solid #ccc"
+  /></a>
+</div>
+{{ endif }}

@@ -1,0 +1,27 @@
+<table class="table table-striped">
+  {{ tabell }}
+    {{ if first && first_row_headers }}
+      <thead class="thead-light">
+        <tr>
+          {{ cells }}
+            <th>{{ value|markdown }}</th>
+          {{ /cells }}
+        </tr>
+      </thead>
+      <tbody>
+    {{ /if }}
+    {{ if !first && first_row_headers || !first_row_headers }}
+      {{ if first }}
+        <tbody>
+      {{ /if }}
+        <tr>
+          {{ cells }}
+            <td>{{ value|markdown }}</td>
+          {{ /cells }}
+        </tr>
+      {{ if last }}
+        </tbody>
+      {{ /if }}
+    {{ /if }}
+  {{ /tabell }}
+</table>

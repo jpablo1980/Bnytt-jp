@@ -1,0 +1,38 @@
+title: Nyheter
+sections:
+  main:
+    display: Main
+    fields:
+      content:
+        spellcheck: true
+        allow_source: true
+        autoLink: false
+        target_blank: false
+        link_validation: false
+        force_plain_text: true
+        clean_pasted_html: false
+        restrict_assets: false
+        type: bard
+        display: Innehåll
+  installningar:
+    display: Inställningar
+    fields:
+      posts:
+        type: integer
+        display: 'Antal nyheter som ska visas'
+      categories:
+        label: '{{ title }} ({{ count }})'
+        taxonomy: categories
+        mode: panes
+        type: taxonomy
+        instructions: 'Kategorier som ska visas'
+        display: Kategorier
+      tags:
+        label: '{{ title }} ({{ count }})'
+        taxonomy: tags
+        mode: panes
+        type: taxonomy
+        display: Taggar
+taxonomies: true
+create_title: ''
+template: 'nyheter'

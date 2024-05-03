@@ -1,0 +1,25 @@
+title: 'Contact Me'
+honeypot: last_name
+fields:
+  name:
+    display: Namn
+    validate: 'required|min:2'
+  email:
+    display: E-post
+    validate: required|email
+  comment:
+    display: Meddelande
+  last_name:
+    display: Efternamn
+columns:
+  - name
+  - email
+  - comment
+metrics:
+  -
+    type: total
+    label: 'Total Responses'
+email:
+  -
+    to: info@svenskabolan.se
+    subject: 'Kontaktformulär - Bostadsrättsnytt.'

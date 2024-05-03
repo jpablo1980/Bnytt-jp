@@ -1,0 +1,64 @@
+
+    {{ partial:breadcrumbs}}
+
+    <div class="main-container container" id="main-container">
+      <!-- post content -->
+      <div class="blog__content mb-72">
+        <h1 class="page-title">{{ title }}</h1>
+        {{ if intro_image  }}
+              <div class="entry__img-holder">
+                  <img src="{{ glide:intro_image width='800' height='500' fit='crop' }}" alt="{{ intro_image }}" class="page-featured-img">
+
+              </div>
+              <small class="text-muted">{{ assets:intro_image }} {{ alt }} {{ /assets:intro_image }}</small>
+        {{ endif }}
+
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="entry__article">
+
+                {{ innehall }}
+                   {{ partial src="sets/{type}" }}
+                {{ /innehall }}
+
+        {{ form:create in="contact" }}
+
+            {{ if errors }}
+                <div class="alert alert-danger">
+                    {{ errors }}
+                        {{ value }}<br>
+                    {{ /errors }}
+                </div>
+            {{ /if }}
+
+            {{ if success }}
+                <div class="alert alert-success">
+                    Formuläret skickades.
+                </div>
+            {{ /if }}
+
+            <div class="form-group">
+                <label>Namn</label>
+                <input type="text" name="name" value="{{ old:name }}" class="form-control" />
+								<input type="text" name="last_name" value="" style="display:none;" />
+            </div>
+
+            <div class="form-group">
+                <label>E-post</label>
+                <input type="text" name="email" value="{{ old:email }}" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label>Meddelande</label>
+                <textarea name="comment" class="form-control">{{ old:comment }}</textarea>
+            </div>
+
+            <button class="btn btn-primary">Skicka</button>
+
+        {{ /form:create }}
+
+            </div>
+          </div>
+        </div>
+      </div> <!-- end post content -->
+    </div>

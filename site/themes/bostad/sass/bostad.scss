@@ -1,0 +1,122 @@
+// Base
+@import "base/_variables.scss";
+@import "base/_mixins.scss";
+@import "base/_general.scss";
+@import "base/_typography.scss";
+
+
+// Layout
+@import "layout/_grid.scss";
+@import "layout/_elements.scss";
+@import "layout/_layout.scss";
+@import "layout/_navigation.scss";
+@import "layout/_footer.scss";
+@import "layout/_spacings.scss";
+@import "layout/_helper-classes.scss";
+@import "layout/_wordpress.scss";
+@import "layout/_theme-styles.scss";
+
+
+.nav__region__holder {
+	border-top: 1px solid #ccc;
+}
+
+.nav--sticky {
+    height: 62px;
+  }
+
+@media all and (min-width: 992px) {
+  .nav--sticky {
+    height: 97px;
+  }
+  .nav--sticky.sticky {
+    height: 97px;
+  }
+}
+.nav__region__holder ul li a {
+	line-height:40px;
+}
+
+.nav--sticky.sticky .nav__menu > li > a {
+    line-height: 40px;
+}
+
+.nav__holder.sticky .nav__region__holder {
+	display: none;
+}
+
+.nav__region__holder ul li a {
+	font-weight: 400;
+	text-transform: none;
+}
+
+.sponsored .card__body {
+      background: #FEF6E2;
+}
+
+.sponsored.content-box {
+      background: #FEF6E2;
+}
+
+.flik {
+    background: #2ada94;
+    height: 30px;
+    width: 120px;
+    text-align: center;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    margin: 0;
+    padding: 5px;
+    overflow: visible;
+    font-weight: bold;
+    color: #fff;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    z-index: 9;
+}
+
+
+.flik__artikel {
+	background: #2ada94;
+	height: 33px;
+	width: 155px;
+	text-align: center;
+	position: absolute;
+	top: 16px;
+	right: 0px;
+	margin: 9px;
+	padding: 5px;
+	overflow: visible;
+	font-weight: bold;
+	line-height: 1.5;
+	color: #fff;
+	border-top-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.card.medarbetare {
+	  transition: 0.70s;
+  -webkit-transition: 0.70s;
+  -moz-transition: 0.70s;
+  -ms-transition: 0.70s;
+  -o-transition: 0.70s;
+	
+}
+
+.card.medarbetare:hover {
+	background:#efefef;
+	cursor:pointer;
+
+
+	transition: 0.70s;
+  -webkit-transition: 0.70s;
+  -moz-transition: 0.70s;
+  -ms-transition: 0.70s;
+  -o-transition: 0.70s;
+  -webkit-transform: rotate(4deg);
+  -moz-transform: rotate(4deg);
+  -o-transform: rotate(4deg);
+  -ms-transform: rotate(4deg);
+  transform: rotate(4deg);
+}

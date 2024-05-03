@@ -1,0 +1,20 @@
+<!-- Trending Now -->
+<div class="container d-none d-lg-block">
+  <div class="trending-now">
+    <span class="trending-now__label">
+      <i class="ui-flash"></i>
+    Senaste nytt</span>
+    <div class="newsticker">
+      <ul class="newsticker__list">
+        {{ collection:articles limit="5" artikel_typ:is="nyhet" }}
+          <li class="newsticker__item"><a href="{{url}}" class="newsticker__item-url">{{title}} - {{ ingress | strip_tags | first:80  }}...</a></li> 
+        {{ /collection:articles }}
+               
+      </ul>
+    </div>
+    <div class="newsticker-buttons">
+      <button class="newsticker-button newsticker-button--prev" id="newsticker-button--prev" aria-label="next article"><i class="ui-arrow-left"></i></button>
+      <button class="newsticker-button newsticker-button--next" id="newsticker-button--next" aria-label="previous article"><i class="ui-arrow-right"></i></button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+title: Ads
+fieldset: ads
+columns:
+  - title
+  - bild.null
+  - typ
+  - clicks
+  - views
+  - slug
+  - aktiv
+seo: false

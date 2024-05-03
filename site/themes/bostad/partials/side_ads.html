@@ -1,0 +1,13 @@
+{{ cache for="12 hours" scope="site" }}
+<div v-if="sideAds">
+  <aside class="widget widget_media_image" v-for="ad in sideAds">
+    <a
+      :href="'/!/ads/ad/' + ad.id"
+      target="_blank"
+      onclick="gaTrackEvent('Annons', 'click', 'SideBanner');"
+    >
+      <img :src="ad.bild" alt="" />
+    </a>
+  </aside>
+</div>
+{{ /cache }}

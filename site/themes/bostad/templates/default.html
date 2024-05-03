@@ -1,0 +1,30 @@
+
+	{{ partial:breadcrumbs}}
+    
+    <div class="main-container container" id="main-container">            
+      <!-- post content -->
+      <div class="blog__content mb-72">
+        <h1 class="page-title">{{ title }}</h1>
+        {{ if intro_image }}
+			<img src="{{ intro_image }}" class="page-featured-img">
+        {{ /if }}
+        
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="entry__article">
+
+              {{ if content}}
+                {{ content }}
+              {{ endif }}
+
+              {{ if innehall }}
+                  {{ innehall }}
+                   {{ partial src="sets/{type}" }}
+                {{ /innehall }}
+              {{ endif }}
+
+            </div>
+          </div>
+        </div>
+      </div> <!-- end post content -->
+    </div>

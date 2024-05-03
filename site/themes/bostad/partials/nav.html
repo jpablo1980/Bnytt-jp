@@ -1,0 +1,277 @@
+<!-- Top Bar -->
+<div class="top-bar d-none d-lg-block">
+  <div class="container">
+    <div class="row">
+
+      <!-- Top menu -->
+      <div class="col-lg-10">
+        <ul class="top-menu">
+          <li><a href="/om-oss">Om oss</a></li>
+          <li><a href="/kontakta-oss">Kontakta oss</a></li>
+          <li><a href="/annonsera">Annonsera</a></li>
+          <li><a href="http://styrelsemassan.se"> <i class="ui-pin"></i> Styrelsemässan - mässan för dig i styrelsen</a></li>
+          <li><a href="https://tryggaliv.se"> <i class="ui-pin"></i> Trygga Liv - Hjärtstartare och HLR utbildning</a></li>
+         <!--  <li><a href="https://hittaleverantorer.se"> <i class="ui-pin"></i> Hitta Leverantörer till din BRF</a></li> -->
+        </ul>
+      </div>
+
+      <!-- Socials -->
+      <div class="col-lg-2">
+        <div class="socials nav__socials socials--nobase socials--white justify-content-end">
+          <a class="social social-facebook" href="https://www.facebook.com/Bostadsr%C3%A4ttsnytt-1450022262511970/" target="_blank" aria-label="facebook">
+            <i class="ui-facebook"></i>
+          </a>
+          <!-- <a class="social social-twitter" href="#" target="_blank" aria-label="twitter">
+            <i class="ui-twitter"></i>
+          </a>
+          <a class="social social-google-plus" href="#" target="_blank" aria-label="google">
+            <i class="ui-google"></i>
+          </a>
+          <a class="social social-youtube" href="#" target="_blank" aria-label="youtube">
+            <i class="ui-youtube"></i>
+          </a>
+          <a class="social social-instagram" href="#" target="_blank" aria-label="instagram">
+            <i class="ui-instagram"></i>
+          </a> -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div> <!-- end top bar -->
+
+<!-- Navigation -->
+<header class="nav">
+
+  <div class="nav__holder nav--sticky">
+    <div class="container relative">
+      <div class="flex-parent">
+
+        <!-- Side Menu Button -->
+        <button class="nav-icon-toggle d-lg-none " id="nav-icon-toggle" aria-label="Open side menu">
+          <span class="nav-icon-toggle__box">
+            <span class="nav-icon-toggle__inner"></span>
+          </span>
+        </button>
+
+        <!-- Logo -->
+        <a href="/" class="logo">
+          <img class="logo__img" src="{{theme:img src="logo.png"}}" srcset="{{theme:img src="logo.png"}} 1x, {{theme:img src="logo@2x.png"}} 2x" alt="logo">
+        </a>
+
+        <!-- Nav-wrap -->
+        <nav class="flex-child nav__wrap d-none d-lg-block">
+          <ul class="nav__menu">
+
+            <li class="nav__dropdown {{ if segment_1 == "nyheter" }} active{{ /if }}">
+              <a href="{{ path src="/nyheter" }}">Nyheter</a>
+              <ul class="nav__dropdown-menu">
+                   {{ nav from="/nyheter" max_depth="1"}}
+                      <li {{ if is_current || is_parent }} class="active"{{ /if }}>
+                         <a href="{{ url }}" >{{ title }}</a>
+                      </li>
+                   {{ /nav }}
+                </ul>
+            </li>
+
+            <li class="nav__dropdown">
+              <a href="{{ path src="/reportage" }}">Reportage</a>
+              <ul class="nav__dropdown-menu nav__megamenu">
+                <li>
+                  <div class="nav__megamenu-wrap">
+                    <div class="row">
+                      {{ collection:articles limit="4" artikel_typ:is="reportage" }}
+                          <div class="col nav__megamenu-item">
+                            <article class="entry">
+                              <div class="entry__img-holder">
+                                <a href="{{ url }}">
+                                  <img src="{{ glide:intro_image width='386' height='270' fit="crop" }}" alt="" class="entry__img">
+                                </a>
+                                <!-- <a href="categories.html" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner entry__meta-category--violet">world</a> -->
+                              </div>
+
+                              <div class="entry__body">
+                                <h2 class="entry__title">
+                                  <a href="{{ url }}">{{ title }}</a>
+                                </h2>
+                              </div>
+                            </article>
+                          </div>
+
+                      {{ /collection:articles }}
+
+
+                    </div>
+
+                    <!-- READ MORE ROW -->
+                    <div class="row">
+                      <div class="col">
+
+                        <a href="{{ path src='/reportage' }}">Se fler reportage</a></div>
+                      </div>
+
+                  </div>
+                </li>
+              </ul> <!-- end megamenu -->
+            </li>
+
+            <li class="nav__dropdown">
+              <a href="/bopodden">BoPodden</a>
+              <ul class="nav__dropdown-menu nav__megamenu">
+                <li>
+                  <div class="nav__megamenu-wrap">
+                    <div class="row">
+                      {{ collection:articles limit="3" artikel_typ:is="podd" }}
+                          <div class="col nav__megamenu-item">
+                            <article class="entry">
+                              <div class="entry__img-holder">
+                                <a href="{{ url }}">
+                                  <img src="{{ glide:intro_image width='386' height='270' fit="crop" }}" alt="" class="entry__img">
+                                </a>
+                                <!-- <a href="categories.html" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner entry__meta-category--violet">world</a> -->
+                              </div>
+
+                              <div class="entry__body">
+                                <h2 class="entry__title">
+                                  <a href="{{ url }}">{{ title }}</a>
+                                </h2>
+                              </div>
+                            </article>
+                          </div>
+
+                      {{ /collection:articles }}
+
+                        <div class="col nav__megamenu-item">
+                            <article class="entry">
+                              <div class="entry__img-holder">
+                                <a href="/bopodden">
+                                  <img src="" alt="" class="entry__img">
+                                </a>
+                                <!-- <a href="categories.html" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner entry__meta-category--violet">world</a> -->
+                              </div>
+
+                              <div class="entry__body">
+                                <h2 class="entry__title">
+                                  <a href="/bopodden">Se fler BoPoddar</a>
+                                </h2>
+                              </div>
+                            </article>
+                          </div>
+
+                    </div>
+
+                    <!-- READ MORE ROW -->
+                    <!-- <div class="row">
+                      <div class="col">
+
+                        <a href="{{ path src='/bovloggen' }}">Se fler BoPoddar</a></div>
+                      </div> -->
+
+                  </div>
+                </li>
+              </ul> <!-- end megamenu -->
+            </li>
+
+            <li class="nav__dropdown">
+              <a href="/bovloggen">BoVloggen</a>
+              <ul class="nav__dropdown-menu nav__megamenu">
+                <li>
+                  <div class="nav__megamenu-wrap">
+                    <div class="row">
+                      {{ collection:articles limit="3" artikel_typ:is="vlog" }}
+                          <div class="col nav__megamenu-item">
+                            <article class="entry">
+                              <div class="entry__img-holder">
+                                <a href="{{ url }}">
+                                  <img src="{{ glide:intro_image width='386' height='270' fit="crop" }}" alt="" class="entry__img">
+                                </a>
+                                <!-- <a href="categories.html" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner entry__meta-category--violet">world</a> -->
+                              </div>
+
+                              <div class="entry__body">
+                                <h2 class="entry__title">
+                                  <a href="{{ url }}">{{ title }}</a>
+                                </h2>
+                              </div>
+                            </article>
+                          </div>
+                      {{ /collection:articles }}
+
+                        <div class="col nav__megamenu-item">
+                            <article class="entry">
+                              <div class="entry__img-holder">
+                                <a href="/bovloggen">
+                                  <img src="" alt="" class="entry__img">
+                                </a>
+                                <!-- <a href="categories.html" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner entry__meta-category--violet">world</a> -->
+                              </div>
+
+                              <div class="entry__body">
+                                <h2 class="entry__title">
+                                  <a href="/bovloggen">Se fler BoVloggar</a>
+                                </h2>
+                              </div>
+                            </article>
+                          </div>
+
+
+                    </div>
+
+                    <!-- READ MORE ROW -->
+                    <!-- <div class="row">
+                      <div class="col">
+
+                        <a href="{{ path src='/bovloggen' }}">Se fler BoVloggar</a></div>
+                      </div> -->
+
+                  </div>
+                </li>
+              </ul> <!-- end megamenu -->
+            </li>
+
+
+
+
+          </ul> <!-- end menu -->
+        </nav> <!-- end nav-wrap -->
+
+        <!-- Nav Right -->
+        <div class="nav__right">
+
+          <!-- Search -->
+          <div class="nav__right-item nav__search">
+            <a href="#" class="nav__search-trigger" id="nav__search-trigger">
+              <i class="ui-search nav__search-trigger-icon"></i>
+            </a>
+            <div class="nav__search-box" id="nav__search-box">
+              <form role="search" class="nav__search-form" action="/sok" method="get">
+                <input name="q" type="text" placeholder="Sök efter nyheter..." class="nav__search-input">
+                <button type="submit" class="search-button btn btn-lg btn-color btn-button">
+                  <i class="ui-search nav__search-icon"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+
+        </div> <!-- end nav right -->
+
+
+      </div> <!-- end flex-parent -->
+
+      <div class="flex__parent nav__region__holder d-none d-lg-block">
+            <!-- <h4>Region:</h4>         -->
+            <ul class="nav__menu nav__region">
+              <li class="">Regionala nyheter:</li>
+              <li class="{{ if segment_1 != 'region' && !segment_2 }}active{{ /if }}"><a class="" href="{{ path src="/" }}">Hela Sverige</a></li>
+              {{ collection:region }}
+                <li class="{{ if segment_1 == "region" && segment_2 == slug }}active {{ /if }}"><a class="" href="{{ url }}">{{title}}</a></li>
+              {{ /collection:region }}
+
+            </ul>
+          </div>
+
+    </div> <!-- end container -->
+
+  </div>
+</header>
+ <!-- end navigation -->

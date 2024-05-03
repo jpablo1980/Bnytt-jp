@@ -1,0 +1,21 @@
+{{ cache for="12 hours" scope="site" }}
+<section class="section mb-24">
+  <!-- Slider -->
+  <div class="row" v-if="smallMiddleAds">
+    <div
+      v-for="ad in smallMiddleAds"
+      class="col-md-3 col-sm-6 text-center mb-2"
+    >
+      <a :href="'/!/ads/ad/' + ad.id" target="_blank">
+        <img
+          style="border:1px solid #999; background-color: white"
+          :src="ad.bild"
+	width="250"
+	height="250"
+          alt=""
+        />
+      </a>
+    </div>
+  </div>
+</section>
+{{ /cache }}

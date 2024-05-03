@@ -1,0 +1,14 @@
+title: Region
+sections:
+  main:
+    display: Main
+    fields:
+      title:
+        display: Region
+        type: text
+        localizable: true
+      slug:
+        display: Slug
+        type: text
+taxonomies: true
+hide: true

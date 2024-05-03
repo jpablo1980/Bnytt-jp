@@ -1,0 +1,8 @@
+title: Regioner
+fieldset: region
+order: number
+template: region
+layout: region
+seo:
+  title: '@seo:title'
+  description: 'Regionala nyheter från {{ title }}'

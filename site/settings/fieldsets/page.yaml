@@ -1,0 +1,112 @@
+sections:
+  main:
+    display: Main
+    fields:
+      title:
+        display: Title
+        type: text
+        localizable: true
+      slug:
+        display: Slug
+        type: text
+      date:
+        display: Date
+        type: date
+        allow_blank: false
+        allow_time: true
+        require_time: false
+        earliest_date: 'January 1, 1900'
+      intro_image:
+        type: assets
+        display: 'Intro Image'
+        container: main
+        folder: img
+        max_files: 1
+      innehall:
+        spellcheck: true
+        allow_source: true
+        autoLink: true
+        target_blank: true
+        link_validation: true
+        force_plain_text: true
+        clean_pasted_html: true
+        restrict_assets: false
+        type: bard
+        display: Innehåll
+        sets:
+          medarbetare:
+            display: Medarbetare
+            fields:
+              namn:
+                type: text
+                display: Namn
+              titel:
+                type: text
+                display: Titel
+              tel:
+                type: text
+                display: Tel
+              e_post:
+                type: text
+                display: E-post
+              bild_1:
+                container: main
+                folder: img/medarbetare
+                restrict: true
+                max_files: 1
+                type: assets
+                display: 'Bild 1'
+              bild_2:
+                container: main
+                folder: img/medarbetare
+                restrict: true
+                max_files: 1
+                mode: grid
+                type: assets
+                display: 'Bild 2'
+          image:
+            display: Image
+            fields:
+              photo:
+                display: Photo
+                type: assets
+                container: main
+                folder: img
+                max_files: 1
+              caption:
+                type: text
+              size:
+                type: radio
+                default: Normal
+                options:
+                  Normal: Normal
+                  Oversized: Oversized
+          quote:
+            display: 'Pull Quote'
+            fields:
+              quote:
+                display: 'The Quote'
+                type: markdown
+              cite:
+                type: text
+                display: Cite
+          fact_table:
+            display: 'Fact table'
+            fields:
+              tabell:
+                type: table
+                display: Tabell
+          list:
+            display: List
+            fields:
+              rubrik:
+                type: text
+                width: 50
+                display: Rubrik
+              list:
+                type: list
+                width: 50
+                display: List
+taxonomies: true
+title: Page
+create_title: ''

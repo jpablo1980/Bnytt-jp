@@ -1,0 +1,42 @@
+{{ cache for="12 hours" scope="site" }}
+<aside class="widget widget_media_image">
+  <a
+    class="typeform-share link"
+    href="https://form.typeform.com/to/rvoMU88r"
+    data-mode="popup"
+    style="color:#267DDD;text-decoration:underline;font-size:20px;"
+    data-submit-close-delay="5"
+    target="_blank"
+  >
+    <img src="{{ theme:img src="nyhetsbrev.jpg" }}" alt="">
+  </a>
+</aside>
+{{ section:page_scripts }}
+<script>
+  (function() {
+    var qs,
+      js,
+      q,
+      s,
+      d = document,
+      gi = d.getElementById,
+      ce = d.createElement,
+      gt = d.getElementsByTagName,
+      id = "typef_orm_share",
+      b = "https://embed.typeform.com/";
+    if (!gi.call(d, id)) {
+      js = ce.call(d, "script");
+      js.id = id;
+      js.src = b + "embed.js";
+      q = gt.call(d, "script")[0];
+      q.parentNode.insertBefore(js, q);
+    }
+  })();
+</script>
+
+<!-- OLD TYPEFORM -->
+<!-- href="https://argia.typeform.com/to/zFeZt5" -->
+
+{{ /section:page_scripts }}
+
+{{ /cache }}

@@ -1,0 +1,39 @@
+<aside class="widget widget-popular-posts">
+  <h4 class="widget-title">BoVloggen</h4>
+  <ul class="post-list-small">
+    {{ collection:articles limit="4" artikel_typ:is="vlog" }}
+
+    <li class="post-list-small__item">
+      <article class="post-list-small__entry clearfix">
+        <div class="post-list-small__img-holder">
+          <div class="thumb-container thumb-100">
+            <a href="{{ url }}">
+              <img
+                data-src="{{ glide:intro_image width='180' height='180' fit='crop' q='90' }}"
+                src="img/empty.png"
+                alt=""
+                class="lazyload"
+              />
+            </a>
+          </div>
+        </div>
+        <div class="post-list-small__body">
+          <h3 class="post-list-small__entry-title">
+            <a href="{{ url }}">{{ title }}</a>
+          </h3>
+          <ul class="entry__meta">
+            <!-- <li class="entry__meta-author">
+	            <span>by</span>
+	            <a href="#">DeoThemes</a>
+	          </li> -->
+            <li class="entry__meta-date">
+              {{ date format="M j, Y" }}
+            </li>
+          </ul>
+        </div>
+      </article>
+    </li>
+
+    {{ /collection:articles }}
+  </ul>
+</aside>

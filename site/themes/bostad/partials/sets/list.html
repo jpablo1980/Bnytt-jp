@@ -1,0 +1,16 @@
+<div class="card" style="width: 18rem;">
+	<div class="card-header">
+	{{ if rubrik}}
+		<h4>{{ rubrik }}</h4>
+	{{ endif }}
+  </div>
+   <div class="card-body">
+	  {{ if list }}
+		  <ul class="list-group list-group-flush">
+		  	{{ list }}
+				<li class="list-group-item">{{ value }}</li>
+			{{ /list }}
+		  </ul>
+	  {{ endif }}
+	</div>
+</div>

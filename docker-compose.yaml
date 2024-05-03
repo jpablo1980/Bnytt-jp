@@ -1,0 +1,52 @@
+version: '3.7'
+
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: bostadsrattsnytt
+      MYSQL_USER: bostadsrattsnytt
+      MYSQL_PASSWORD: bostadsrattsnytt
+      MYSQL_ROOT_PASSWORD: s3cr3tp4ssw0rd
+    ports:
+      - "3302:3306"
+    volumes:
+    - ./docker/db-data:/var/lib/mysql
+
+  adminer:
+    image: michalhosna/adminer
+    environment:
+      ADMINER_DRIVER: server
+      ADMINER_SERVER: db
+      ADMINER_DB: bostadsrattsnytt
+      ADMINER_USERNAME: root
+      ADMINER_PASSWORD: s3cr3tp4ssw0rd
+      ADMINER_AUTOLOGIN: 1
+      ADMINER_NAME: "laravel Dev DB"
+    ports:
+      - "3301:8080"
+    links:
+      - db
+
+  redis:
+    image: redis:6
+
+  app:
+    build:
+      context: ./
+      target: dependencies
+    environment:
+      APP_ENV: development
+      DB_HOST: db
+      DB_DATABASE: bostadsrattsnytt
+      DB_USERNAME: bostadsrattsnytt
+      DB_PASSWORD: bostadsrattsnytt
+      APP_DEBUG: "false"
+    volumes:
+      - ./:/usr/share/nginx
+      - ~/.ssh:/root/.ssh:ro
+    ports:
+      - "3300:80"
+    links:
+      - db
+      - redis

@@ -1,0 +1,209 @@
+{{partial:latest}}
+
+
+<div class="main-container container pt-24" id="main-container">         
+
+      <div class="row">
+
+        <!-- Posts -->
+        <div class="col-lg-8 blog__content mb-72">
+
+          <!-- Worldwide News -->
+          <section class="section">
+            <div class="title-wrap">
+              <h3 class="section-title">Regiononala nyheter - {{title}}</h3>
+              <div class="tabs tab-post__tabs"> 
+                <ul class="tabs__list">
+                  <li class="tabs__item {{ if segment_1 == "nyheter" && !segment_2 }}tabs__item--active {{ /if }}">
+                    <a href="#tab-all" class="tabs__trigger">Alla</a>
+                  </li>
+
+                  {{ taxonomy:categories }}
+                    <li class="tabs__item {{ if segment_1 == "nyheter" && segment_2 == slug }} tabs__item--active {{ /if }}">
+                      <a href="/nyheter{{ link :to="slug" }}" class="tabs__trigger">{{ title }}</a>
+                    </li>
+                  {{ /taxonomy:categories }}
+                  
+                  
+                </ul> <!-- end tabs -->
+              </div>
+            </div>
+
+            {{ collection:articles limit="5"  region:contains="{id}" as="articles" }}
+              {{ if no_results }}
+                  <p>Tyvärr, så finnes inga nyheter.</p>
+              {{ /if }}
+
+              {{ articles }}
+                {{ partial:article_feed }}
+              {{ /articles }}
+
+              {{ paginate }}
+                {{ auto_links }}
+              {{ /paginate }}
+            {{ /collection:articles }}
+
+          </section> <!-- end worldwide news -->
+
+          <!-- Pagination -->
+          <nav class="pagination">
+            <span class="pagination__page pagination__page--current">1</span>
+            <a href="#" class="pagination__page">2</a>
+            <a href="#" class="pagination__page">3</a>
+            <a href="#" class="pagination__page">4</a>
+            <a href="#" class="pagination__page pagination__icon pagination__page--next"><i class="ui-arrow-right"></i></a>
+          </nav>
+
+        </div> <!-- end posts -->
+
+        <!-- Sidebar -->
+        <aside class="col-lg-4 sidebar sidebar--right">
+
+
+           <!-- Widget Newsletter -->
+           {{ partial:newsletter }}
+           <!-- end widget newsletter -->
+           
+          <!-- Widget Newsletter -->
+           {{ partial:massor }}
+           <!-- end widget newsletter -->
+
+          <!-- Widget Popular Posts -->
+          {{partial:most_read}}
+           <!-- end widget popular posts -->
+
+
+          <aside class="widget widget_categories">
+            <h4 class="widget-title">Videloggen</h4>
+            <ul>
+              <li><a href="categories.html">World <span class="categories-count">5</span></a></li>
+              <li><a href="categories.html">Lifestyle <span class="categories-count">7</span></a></li>
+              <li><a href="categories.html">Business <span class="categories-count">5</span></a></li>
+              <li><a href="categories.html">Fashion <span class="categories-count">8</span></a></li>
+              <li><a href="categories.html">Investment <span class="categories-count">10</span></a></li>
+              <li><a href="categories.html">Technology <span class="categories-count">6</span></a></li>
+            </ul>
+          </aside>
+
+
+           <!-- Widget Popular Posts -->
+            {{ partial:podcasts }}
+           <!-- end widget popular posts -->
+
+
+           <aside class="widget widget_media_image">
+            <a href="#">
+              <img src="{{ theme:img src="annons4.png" }}" alt="">
+            </a>
+          </aside>
+
+          <aside class="widget widget_media_image">
+            <a href="#">
+              <img src="{{ theme:img src="annons4.png" }}" alt="">
+            </a>
+          </aside>
+          
+          <!-- Widget Socials -->
+           {{# partial:follow #}}
+           <!-- end widget socials -->
+
+        </aside> <!-- end sidebar -->
+  
+      </div>
+
+
+      <div class="text-center pb-48">
+          {{ partial:bottom_ad }}
+      </div>
+
+
+      <section class="section mb-0">
+        <div class="title-wrap title-wrap--line title-wrap--pr">
+          <h3 class="section-title">Senaste nytt från videologgen</h3>
+        </div>
+
+        <!-- Slider -->
+        <div id="owl-posts" class="owl-carousel owl-theme owl-carousel--arrows-outside">
+          <article class="entry thumb thumb--size-1">
+            <div class="entry__img-holder thumb__img-holder" style="background-image: url('img/content/carousel/carousel_post_1.jpg');">
+              <div class="bottom-gradient"></div>
+              <div class="thumb-text-holder">   
+                <h2 class="thumb-entry-title">
+                  <a href="single-post.html">9 Things to Consider Before Accepting a New Job</a>
+                </h2>
+              </div>
+              <a href="single-post.html" class="thumb-url"></a>
+            </div>
+          </article>
+          <article class="entry thumb thumb--size-1">
+            <div class="entry__img-holder thumb__img-holder" style="background-image: url('img/content/carousel/carousel_post_2.jpg');">
+              <div class="bottom-gradient"></div>
+              <div class="thumb-text-holder">   
+                <h2 class="thumb-entry-title">
+                  <a href="single-post.html">Gov’t Toughens Rules to Ensure 3rd Telco Player Doesn’t Slack Off</a>
+                </h2>
+              </div>
+              <a href="single-post.html" class="thumb-url"></a>
+            </div>
+          </article>
+          <article class="entry thumb thumb--size-1">
+            <div class="entry__img-holder thumb__img-holder" style="background-image: url('img/content/carousel/carousel_post_3.jpg');">
+              <div class="bottom-gradient"></div>
+              <div class="thumb-text-holder">   
+                <h2 class="thumb-entry-title">
+                  <a href="single-post.html">(Infographic) Is Work-Life Balance Even Possible?</a>
+                </h2>
+              </div>
+              <a href="single-post.html" class="thumb-url"></a>
+            </div>
+          </article>
+          <article class="entry thumb thumb--size-1">
+            <div class="entry__img-holder thumb__img-holder" style="background-image: url('img/content/carousel/carousel_post_4.jpg');">
+              <div class="bottom-gradient"></div>
+              <div class="thumb-text-holder">   
+                <h2 class="thumb-entry-title">
+                  <a href="single-post.html">Is Uber Considering To Sell its Southeast Asia Business to Grab?</a>
+                </h2>
+              </div>
+              <a href="single-post.html" class="thumb-url"></a>
+            </div>
+          </article>
+          <article class="entry thumb thumb--size-1">
+            <div class="entry__img-holder thumb__img-holder" style="background-image: url('img/content/carousel/carousel_post_2.jpg');">              
+              <div class="bottom-gradient"></div>
+              <div class="thumb-text-holder">   
+                <h2 class="thumb-entry-title">
+                  <a href="single-post.html">Gov’t Toughens Rules to Ensure 3rd Telco Player Doesn’t Slack Off</a>
+                </h2>
+              </div>
+              <a href="single-post.html" class="thumb-url"></a>
+            </div>
+          </article>
+        </div> <!-- end slider -->
+
+      </section>
+
+
+      <!-- Utvalda kategorier -->
+      {{ partial:utvalda_kategorier }}
+      <!-- End Utvalda kategorier -->
+
+
+      <section class="section mb-48">
+        <!-- Slider -->
+        <div class="row">
+          
+          <div class="col-md-3 col-sm-6"><img src="{{ theme:img src="annons.png" }}" alt=""></div>
+          <div class="col-md-3 col-sm-6"><img src="{{ theme:img src="annons.png" }}" alt=""></div>
+          <div class="col-md-3 col-sm-6"><img src="{{ theme:img src="annons.png" }}" alt=""></div>
+          <div class="col-md-3 col-sm-6"><img src="{{ theme:img src="annons.png" }}" alt=""></div>
+          
+        </div>
+
+      </section>
+
+      
+
+
+
+      </div>            

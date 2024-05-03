@@ -1,0 +1,172 @@
+{{partial:latest}}
+
+
+<div class="main-container container pt-24" id="main-container">
+
+      <!-- Content -->
+      <div class="row">
+
+        <!-- Posts -->
+        <div class="col-lg-8 blog__content mb-24">
+
+          <div class="title-wrap">
+              <h3 class="section-title">Regionala nyheter - {{title}}</h3>
+              <div class="tabs tab-post__tabs">
+                <ul class="tabs__list">
+                  <li class="tabs__item {{ if segment_1 == "nyheter" && !segment_2 }}tabs__item--active {{ /if }}">
+                    <a href="#tab-all" class="tabs__trigger">Alla</a>
+                  </li>
+
+                  {{ taxonomy:categories sort="ordning" }}
+                    <li class="tabs__item {{ if segment_1 == "nyheter" && segment_2 == slug }} tabs__item--active {{ /if }}">
+                      <a href="/region/{{page:slug}}{{ link :to="slug" }}" class="tabs__trigger">{{ title }}</a>
+                    </li>
+                  {{ /taxonomy:categories }}
+
+
+                </ul> <!-- end tabs -->
+              </div>
+            </div>
+
+          <!-- TOP NEWS -->
+
+          {{ partial:top_news_region }}
+
+          <!-- END TOP NEWS -->
+
+
+        </div> <!-- end posts -->
+
+        <!-- Sidebar -->
+        <aside class="col-lg-4 sidebar sidebar--right">
+
+          <!-- Widget Popular Posts -->
+          {{partial:most_read_region}}
+           <!-- end widget popular posts -->
+
+           <!-- Widget Newsletter -->
+           {{ partial:newsletter }}
+           <!-- end widget newsletter -->
+
+
+
+        </aside> <!-- end sidebar -->
+
+      </div> <!-- end content -->
+
+      <!-- Ad Banner 728 -->
+      <!-- <div class="text-center pb-48">
+        <a href="#">
+          <img src="{{ theme:img src="annons2.png"; }}" alt="">
+        </a>
+      </div> -->
+
+
+
+    <!-- Horizontal ads -->
+    {{ partial:horizontal_ads }}
+    <!-- End of Horizontal ads -->
+
+      <div class="row">
+
+        <!-- Posts -->
+        <div class="col-lg-8 blog__content mb-72">
+
+          <!-- Worldwide News -->
+          <section class="section">
+
+
+            {{ collection:articles limit="8" artikel_typ:isnt="vlog" artikel_typ:isnt="podd" region:contains="{id}" as="articles" paginate="true" }}
+              {{ if no_results }}
+                  <p>Tyvärr, så finnes inga nyheter.</p>
+              {{ /if }}
+
+              {{ articles }}
+                  {{ partial:article_feed_region }}
+              {{ /articles }}
+
+              {{ partial:pagination }}
+            {{ /collection:articles }}
+
+          </section> <!-- end worldwide news -->
+
+        </div> <!-- end posts -->
+
+
+
+
+        <!-- Sidebar -->
+        <aside class="col-lg-4 sidebar sidebar--right">
+
+          <!-- Widget Popular Posts -->
+          {{partial:reportage}}
+           <!-- end widget popular posts -->
+
+        <!-- Widget Newsletter -->
+           {{ partial:massor }}
+           <!-- end widget newsletter -->
+
+           <!-- Widget Popular Posts -->
+            {{ partial:podcasts }}
+           <!-- end widget popular posts -->
+
+          <!-- Widget Popular Posts -->
+            {{ partial:vlog }}
+           <!-- end widget popular posts -->
+
+
+           <!-- Widget Side ads  -->
+            {{ partial:side_ads }}
+           <!-- end widget side ads  -->
+
+          <!-- Widget Socials -->
+           {{# partial:follow #}}
+           <!-- end widget socials -->
+
+        </aside> <!-- end sidebar -->
+
+      </div>
+
+
+      <div class="text-center pb-48">
+          {{ partial:bottom_ad }}
+      </div>
+
+
+      <section class="section mb-0">
+        <div class="title-wrap title-wrap--line title-wrap--pr">
+          <h3 class="section-title">Senaste nytt från BoPodden &amp; BoVloggen</h3>
+        </div>
+
+        <!-- Slider -->
+        <div id="owl-posts" class="owl-carousel owl-theme owl-carousel--arrows-outside">
+
+          {{ partial:vlog_carousel }}
+
+        </div> <!-- end slider -->
+
+      </section>
+
+
+      <!-- Utvalda kategorier -->
+      {{ partial:utvalda_kategorier }}
+      <!-- End Utvalda kategorier -->
+
+      {{# <section class="section mb-48">
+        <!-- Slider -->
+        <div class="row">
+
+          <div class="col-md-3 col-sm-6"><img src="{{ theme:img src="annons.png" }}" alt=""></div>
+          <div class="col-md-3 col-sm-6"><img src="{{ theme:img src="annons.png" }}" alt=""></div>
+          <div class="col-md-3 col-sm-6"><img src="{{ theme:img src="annons.png" }}" alt=""></div>
+          <div class="col-md-3 col-sm-6"><img src="{{ theme:img src="annons.png" }}" alt=""></div>
+
+        </div>
+
+      </section> #}}
+
+
+
+
+
+      </div>

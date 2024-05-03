@@ -1,0 +1,284 @@
+{{ cache for="12 hours" scope="page" }}
+{{ article_views:add_view :id="id" }}
+<style>
+
+.wrapword{
+white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+white-space: -webkit-pre-wrap; /*Chrome & Safari */
+white-space: -pre-wrap;      /* Opera 4-6 */
+white-space: -o-pre-wrap;    /* Opera 7 */
+white-space: pre-wrap;       /* css-3 */
+word-wrap: break-word;       /* Internet Explorer 5.5+ */
+word-break: break-all;
+white-space: normal;
+}
+
+</style>
+<!-- Breadcrumbs -->
+
+{{ partial:breadcrumbs}}
+
+
+<div class="main-container container" id="main-container">
+
+      <!-- Content -->
+      <div class="row">
+
+        <!-- post content -->
+        <div class="col-lg-8 blog__content mb-72">
+          <div class="{{ if sponsored }}sponsored{{ endif }} content-box">
+          {{ if sponsored }}
+            <script>
+
+                fbq('track', 'ViewContent');
+              </script>
+              <div class="flik__artikel">
+                  <span>
+                      Sponsrad nyhet
+                    </span>
+                </div>
+          {{ endif }}
+
+            <!-- standard post -->
+            <article class="entry mb-0">
+
+              <div class="single-post__entry-header entry__header ">
+                <a href="categories.html" class="entry__meta-category entry__meta-category--label entry__meta-category--green">{{ categories }}
+        {{ title }}
+      {{ /categories }}</a>
+                <h1 class="single-post__entry-title">
+                  {{title}}
+                </h1>
+
+                <div class="entry__meta-holder">
+                  <ul class="entry__meta">
+                    <li class="entry__meta-date">
+                        {{ date format="M j, Y" }}
+                    </li>
+                  </ul>
+
+                  <ul class="entry__meta">
+                    <!-- <li class="entry__meta-views">
+                      <i class="ui-eye"></i>
+                      <span>{{ views }}</span>
+		    </li> -->
+                    <!-- <li class="entry__meta-comments">
+                      <a href="#">
+                        <i class="ui-chat-empty"></i>13
+                      </a>
+                    </li> -->
+                  </ul>
+                </div>
+              </div> <!-- end entry header -->
+
+
+                {{ if artikel_typ && artikel_typ == "vlog" }}
+
+                  {{ if video | is_embeddable }}
+                      <!-- Youtube and Video -->
+                      <iframe width="680" height="415" src="{{ video | embed_url }}" frameborder="0" allowfullscreen></iframe>
+                  {{ /if }}
+
+                {{ elseif artikel_typ && artikel_typ == "podd" }}
+                      {{ podd }}
+                      <div class="entry__img-holder">
+                        <img src="{{ intro_image }}" alt="" class="entry__img">
+                      </div>
+                {{ else }}
+                  <div class="entry__img-holder">
+                      <img src="{{ glide:intro_image width='800' height='500' fit='crop' }}" alt="{{ intro_image }}" class="entry__img">
+
+                  </div>
+                {{ endif }}
+
+
+                <small class="text-muted">{{ assets:intro_image }} {{ alt }} {{ /assets:intro_image }}</small>
+
+                <div class="clear-fix clearfix">&nbsp;</div>
+
+              <div class="entry__article-wrap">
+
+                <!-- Share -->
+                <div class="entry__share">
+                  <div class="sticky-col">
+                    <div class="socials socials--rounded socials--large">
+                      <!-- <a class="social social-facebook" href="#" title="facebook" target="_blank" aria-label="facebook">
+                        <i class="ui-facebook"></i>
+                      </a> -->
+                      <!-- Your share button code -->
+                      <!--<div class="fb-share-button"
+                        data-href="{{ url }}"
+                        data-layout="button_count">
+                      </div>-->
+                      {{#<a class="social social-twitter" href="#" title="twitter" target="_blank" aria-label="twitter">
+                        <i class="ui-twitter"></i>
+                      </a>
+                      <a class="social social-google-plus" href="#" title="google" target="_blank" aria-label="google">
+                        <i class="ui-google"></i>
+                      </a>
+                      <a class="social social-pinterest" href="#" title="pinterest" target="_blank" aria-label="pinterest">
+                        <i class="ui-pinterest"></i>
+                      </a>#}}
+                    </div>
+                  </div>
+                </div> <!-- share -->
+
+                <div class="entry__article">
+
+                 <p class="lead"> {{ ingress }} </p>
+
+
+                 <div>
+                  {{ long_form }}
+                   {{ partial src="sets/{type}" }}
+                  {{ /long_form }}
+                 </div>
+
+                  <!-- tags -->
+                  <div class="entry__tags">
+                    <i class="ui-tags"></i>
+                    <span class="entry__tags-label">Taggar:</span>
+
+                    {{ tags }}
+                      <a href="#" rel="tag">{{ title }}</a>
+                    {{ /tags }}
+
+                  </div> <!-- end tags -->
+
+                </div> <!-- end entry article -->
+              </div> <!-- end entry article wrap -->
+
+
+              <!-- Newsletter Wide -->
+              <div class="newsletter-wide">
+                <div class="widget widget_mc4wp_form_widget">
+                  <div class="newsletter-wide__container">
+                    <div class="newsletter-wide__text-holder">
+                      <p class="newsletter-wide__text" style="font-weight:bold;font-size:18px;">
+                        <i class="ui-email newsletter__icon"></i>
+                        Anmäl dig till vårt nyhetsbrev
+                      </p>
+                    </div>
+                    <div class="newsletter-wide__form">
+                      <a class="typeform-share btn btn-lg btn-color" href="https://argia.typeform.com/to/zFeZt5" data-mode="popup" data-submit-close-delay="5" target="_blank">
+              <span>Anmäl dig</span>
+            </a>
+            <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm_share", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script>
+          </aside>
+                    </div>
+                  </div>
+                </div>
+              </div> <!-- end newsletter wide -->
+
+
+              {{#
+              <!-- Prev / Next Post -->
+              <nav class="entry-navigation">
+                <div class="clearfix">
+                  <div class="entry-navigation--left">
+                    <i class="ui-arrow-left"></i>
+                    <span class="entry-navigation__label">Tidigare inlägg</span>
+                    <div class="entry-navigation__link">
+                      <a href="#" rel="next">How to design your first mobile app</a>
+                    </div>
+                  </div>
+                  <div class="entry-navigation--right">
+                    <span class="entry-navigation__label">Nyare inlägg</span>
+                    <i class="ui-arrow-right"></i>
+                    <div class="entry-navigation__link">
+                      <a href="#" rel="prev">Video Youtube format post. Made with WordPress</a>
+                    </div>
+                  </div>
+                </div>
+              </nav>
+              #}}
+
+
+              {{ if artikel_typ && artikel_typ == "vlog" }}
+
+                {{ partial:liknande_vloggar }}
+
+              {{ elseif artikel_typ && artikel_typ == "podd" }}
+
+                {{ partial:liknande_poddar }}
+
+              {{ else }}
+
+                {{ partial:liknande_nyheter }}
+
+              {{ endif }}
+
+            </article> <!-- end standard post -->
+
+          </div> <!-- end content box -->
+        </div> <!-- end post content -->
+
+        <!-- Sidebar -->
+        <aside class="col-lg-4 sidebar sidebar--right">
+
+          <!-- Widget Popular Posts -->
+          {{ partial:most_read }}
+           <!-- end widget popular posts -->
+
+           <!-- Widget Newsletter -->
+           {{ partial:newsletter }}
+           <!-- end widget newsletter -->
+
+
+           <!-- Widget Side ads  -->
+            {{ partial:side_ads }}
+           <!-- end widget side ads  -->
+
+          <!-- Widget Popular Posts -->
+            {{ partial:reportage }}
+           <!-- end widget popular posts -->
+
+        <!-- Widget Newsletter -->
+           {{ partial:massor }}
+           <!-- end widget newsletter -->
+
+           <!-- Widget Popular Posts -->
+            {{ partial:podcasts }}
+           <!-- end widget popular posts -->
+
+          <!-- Widget Popular Posts -->
+            {{ partial:vlog }}
+           <!-- end widget popular posts -->
+
+
+
+        </aside> <!-- end sidebar -->
+
+      </div> <!-- end content -->
+
+
+      <div class="text-center pb-48">
+          {{ partial:bottom_ad }}
+      </div>
+
+
+      <section class="section mb-0">
+        <div class="title-wrap title-wrap--line title-wrap--pr">
+          <h3 class="section-title">Senaste nytt från BoPodden &amp; BoVloggen</h3>
+        </div>
+
+        <!-- Slider -->
+        <div id="owl-posts" class="owl-carousel owl-theme owl-carousel--arrows-outside">
+
+          {{ partial:vlog_carousel }}
+
+        </div> <!-- end slider -->
+
+      </section>
+
+
+      <!-- Utvalda kategorier -->
+      {{ partial:utvalda_kategorier }}
+      <!-- End Utvalda kategorier -->
+
+
+      <!-- Horizontal ads -->
+    {{ partial:horizontal_ads }}
+    <!-- End of Horizontal ads -->
+    </div> <!-- end main container -->
+{{ /cache }}

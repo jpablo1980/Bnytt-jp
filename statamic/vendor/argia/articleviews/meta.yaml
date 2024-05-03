@@ -1,0 +1,4 @@
+name: ArticleViews
+version: '1.0'
+description: 'Add the ability to count views for a given resource.'
+developer: argia

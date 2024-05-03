@@ -1,0 +1,244 @@
+{{ cache for="12 hours" scope="site" }}
+<section class="section mb-0">
+  <div class="row">
+    <!-- Technology -->
+    {{ relate:utvald_kategori_1 }}
+    <div class="col-md-6">
+      <div class="title-wrap title-wrap--line">
+        <h3 class="section-title">{{ title }}</h3>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          {{ collection:articles limit="1" :taxonomy:categories="slug" }}
+
+          <article class="entry thumb thumb--size-2">
+            <div
+              class="entry__img-holder thumb__img-holder"
+              style="background-image: url('{{ glide:intro_image width='400' }}');"
+            >
+              <div class="bottom-gradient"></div>
+              <div class="thumb-text-holder thumb-text-holder--1">
+                <h2 class="thumb-entry-title">
+                  <a href="{{ url }}">{{ title }}</a>
+                </h2>
+                <ul class="entry__meta">
+                  <!-- <li class="entry__meta-author">
+                          <span>by</span>
+                          <a href="#">DeoThemes</a>
+                        </li> -->
+                  <li class="entry__meta-date">
+                    {{ if date }}
+                    {{ date format="M j, Y" }}
+                    {{ /if }}
+                  </li>
+                </ul>
+              </div>
+              <a href="{{ url }}" class="thumb-url"></a>
+            </div>
+          </article>
+          {{ /collection:articles }}
+        </div>
+        <div class="col-lg-6">
+          <ul
+            class="post-list-small post-list-small--dividers post-list-small--arrows mb-24"
+          >
+            {{ collection:articles limit="6" offset="1" :taxonomy:categories="slug" }}
+            <li class="post-list-small__item">
+              <article class="post-list-small__entry">
+                <div class="post-list-small__body">
+                  <h3 class="post-list-small__entry-title">
+                    <a href="{{ url }}">{{ title }}</a>
+                  </h3>
+                </div>
+              </article>
+            </li>
+            {{ /collection:articles }}
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- end technology -->
+    {{ /relate:utvald_kategori_1 }}
+
+    <!-- Travel -->
+    {{ relate:utvald_kategori_2 }}
+    <div class="col-md-6">
+      <div class="title-wrap title-wrap--line">
+        <h3 class="section-title">{{ title }}</h3>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          {{ collection:articles limit="1" :taxonomy:categories="slug" }}
+
+          <article class="entry thumb thumb--size-2">
+            <div
+              class="entry__img-holder thumb__img-holder"
+              style="background-image: url('{{ glide:intro_image width='400' }}');"
+            >
+              <div class="bottom-gradient"></div>
+              <div class="thumb-text-holder thumb-text-holder--1">
+                <h2 class="thumb-entry-title">
+                  <a href="{{ url }}">{{ title }}</a>
+                </h2>
+                <ul class="entry__meta">
+                  <!-- <li class="entry__meta-author">
+                          <span>by</span>
+                          <a href="#">DeoThemes</a>
+                        </li> -->
+                  <li class="entry__meta-date">
+                    {{ if date }}
+                    {{ date format="M j, Y" }}
+                    {{ /if }}
+                  </li>
+                </ul>
+              </div>
+              <a href="{{ url }}" class="thumb-url"></a>
+            </div>
+          </article>
+          {{ /collection:articles }}
+        </div>
+        <div class="col-lg-6">
+          <ul
+            class="post-list-small post-list-small--dividers post-list-small--arrows mb-24"
+          >
+            {{ collection:articles limit="6" offset="1" :taxonomy:categories="slug" }}
+            <li class="post-list-small__item">
+              <article class="post-list-small__entry">
+                <div class="post-list-small__body">
+                  <h3 class="post-list-small__entry-title">
+                    <a href="{{ url }}">{{ title }}</a>
+                  </h3>
+                </div>
+              </article>
+            </li>
+            {{ /collection:articles }}
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- end technology -->
+    {{ /relate:utvald_kategori_2 }}
+    <!-- end travel -->
+
+    <!-- Cryptocurrency -->
+    {{ relate:utvald_kategori_3 }}
+    <div class="col-md-6">
+      <div class="title-wrap title-wrap--line">
+        <h3 class="section-title">{{ title }}</h3>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          {{ collection:articles limit="1" :taxonomy:categories="slug" }}
+
+          <article class="entry thumb thumb--size-2">
+            <div
+              class="entry__img-holder thumb__img-holder"
+              style="background-image: url('{{ glide:intro_image width='282' }}');"
+            >
+              <div class="bottom-gradient"></div>
+              <div class="thumb-text-holder thumb-text-holder--1">
+                <h2 class="thumb-entry-title">
+                  <a href="{{ url }}">{{ title }}</a>
+                </h2>
+                <ul class="entry__meta">
+                  <!-- <li class="entry__meta-author">
+                          <span>by</span>
+                          <a href="#">DeoThemes</a>
+                        </li> -->
+                  <li class="entry__meta-date">
+                    {{ if date }}
+                    {{ date format="M j, Y" }}
+                    {{ /if }}
+                  </li>
+                </ul>
+              </div>
+              <a href="{{ url }}" class="thumb-url"></a>
+            </div>
+          </article>
+          {{ /collection:articles }}
+        </div>
+        <div class="col-lg-6">
+          <ul
+            class="post-list-small post-list-small--dividers post-list-small--arrows mb-24"
+          >
+            {{ collection:articles limit="6" offset="1" :taxonomy:categories="slug" }}
+            <li class="post-list-small__item">
+              <article class="post-list-small__entry">
+                <div class="post-list-small__body">
+                  <h3 class="post-list-small__entry-title">
+                    <a href="{{ url }}">{{ title }}</a>
+                  </h3>
+                </div>
+              </article>
+            </li>
+            {{ /collection:articles }}
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- end technology -->
+    {{ /relate:utvald_kategori_3 }}
+    <!-- end cryptocurrency -->
+
+    <!-- Investment -->
+    {{ relate:utvald_kategori_4 }}
+    <div class="col-md-6">
+      <div class="title-wrap title-wrap--line">
+        <h3 class="section-title">{{ title }}</h3>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          {{ collection:articles limit="1" :taxonomy:categories="slug" }}
+
+          <article class="entry thumb thumb--size-2">
+            <div
+              class="entry__img-holder thumb__img-holder"
+              style="background-image: url('{{ glide:intro_image width='282' }}');"
+            >
+              <div class="bottom-gradient"></div>
+              <div class="thumb-text-holder thumb-text-holder--1">
+                <h2 class="thumb-entry-title">
+                  <a href="{{ url }}">{{ title }}</a>
+                </h2>
+                <ul class="entry__meta">
+                  <!-- <li class="entry__meta-author">
+                          <span>by</span>
+                          <a href="#">DeoThemes</a>
+                        </li> -->
+                  <li class="entry__meta-date">
+                    {{ if date }}
+                    {{ date format="M j, Y" }}
+                    {{ /if }}
+                  </li>
+                </ul>
+              </div>
+              <a href="{{ url }}" class="thumb-url"></a>
+            </div>
+          </article>
+          {{ /collection:articles }}
+        </div>
+        <div class="col-lg-6">
+          <ul
+            class="post-list-small post-list-small--dividers post-list-small--arrows mb-24"
+          >
+            {{ collection:articles limit="6" offset="1" :taxonomy:categories="slug" }}
+            <li class="post-list-small__item">
+              <article class="post-list-small__entry">
+                <div class="post-list-small__body">
+                  <h3 class="post-list-small__entry-title">
+                    <a href="{{ url }}">{{ title }}</a>
+                  </h3>
+                </div>
+              </article>
+            </li>
+            {{ /collection:articles }}
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- end technology -->
+    {{ /relate:utvald_kategori_4 }}
+    <!-- end investment -->
+  </div>
+</section>
+{{ /cache }}

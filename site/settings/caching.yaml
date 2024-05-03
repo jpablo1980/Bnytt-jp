@@ -1,0 +1,24 @@
+stache_always_update: false
+cache_tags_enabled: true
+static_caching_enabled: true
+static_caching_type: file
+static_caching_file_path: static
+static_caching_ignore_query_strings: false
+static_caching_exclude:
+  - /kontakta-oss
+  - /login
+  - '/cp/*'
+static_caching_invalidation:
+  collections:
+    articles:
+      urls:
+        - /
+        - /region/skane
+        - /region/vastra-gotaland
+        - /region/stockholm
+        - /region/vasteras
+        - /region/uppsala
+        - /region/vasternorrland
+static_caching_lock_hold_length: 0
+stache_lock_enabled: true
+stache_lock_wait_length: 30

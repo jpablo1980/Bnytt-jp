@@ -1,0 +1,9 @@
+title: Categories
+fieldset: kategorier
+columns:
+  - title
+  - slug
+  - count
+  - ordning
+seo:
+  sitemap: false

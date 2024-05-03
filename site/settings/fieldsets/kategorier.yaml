@@ -1,0 +1,18 @@
+sections:
+  main:
+    display: Main
+    fields:
+      title:
+        display: Namn
+        type: text
+        localizable: true
+      slug:
+        display: Slug
+        type: text
+      ordning:
+        type: integer
+        display: Ordning
+taxonomies: false
+title: Kategorier
+create_title: 'Ny kategori'
+hide: true

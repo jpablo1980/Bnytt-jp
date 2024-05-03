@@ -1,0 +1,61 @@
+{{ if paginate:total_pages > 1 }}
+
+	{{ paginate }}
+	<hr>
+        <p style="text-align: center;">Sida {{ current_page }} av {{ total_pages }} ({{ total_results }} artiklar)</p>
+                <nav class="pagination">
+                      {{ if prev_page }}
+                          <!-- <li><a href="{{ prev_page }}">&laquo;</a></li> -->
+                          <a href="{{ prev_page }}" class="pagination__page pagination__icon pagination__page--previous"><i class="ui-arrow-left"></i></a>
+                      {{ else }}
+                          <!-- <li class="disabled"><span>&laquo;</span></li> -->
+                      {{ /if }}
+
+                      {{ links:segments }}
+
+                          {{ first }}
+                              {{ if page == current_page }}
+                                  <span class="pagination__page pagination__page--current">{{ page }}</span>
+                              {{ else }}
+                                  <a href="{{ url }}" class="pagination__page">{{ page }}</a>
+                              {{ /if }}
+                          {{ /first }}
+
+                          {{ if slider }}
+                              <li class="disabled"><span>...</span></li>
+                          {{ /if }}
+
+                          {{ slider }}
+                              {{ if page == current_page }}
+                                  <span class="pagination__page pagination__page--current">{{ page }}</span>
+                              {{ else }}
+                                  <a href="{{ url }}" class="pagination__page">{{ page }}</a>
+                              {{ /if }}
+                          {{ /slider }}
+
+                          {{ if slider || (!slider && last) }}
+                              <li class="disabled"><span>...</span></li>
+                          {{ /if }}
+
+                          {{ last }}
+                              {{ if page == current_page }}
+                                  <span class="pagination__page pagination__page--current">{{ page }}</span>
+                              {{ else }}
+                                  <a href="{{ url }}" class="pagination__page">{{ page }}</a>
+                              {{ /if }}
+                          {{ /last }}
+
+                      {{ /links:segments }}
+
+                      {{ if next_page }}
+                          <a href="{{ next_page }}" class="pagination__page pagination__icon pagination__page--next"><i class="ui-arrow-right"></i></a>
+                      {{ else }}
+                          <!-- <li class="disabled"><span>&raquo;</span></li> -->
+                      {{ /if }}
+                  </ul>
+
+                </nav>
+                
+              {{ /paginate }}
+
+{{ /if }}

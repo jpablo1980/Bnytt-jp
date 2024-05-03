@@ -1,0 +1,57 @@
+{{ if show_sponsored_feed }}
+{{collection:articles scope="spons" limit="1" sponsored:is="true" sort="date:desc"}}
+			<article class="entry card post-list {{ if spons:sponsored }}sponsored{{ endif }}">
+
+				{{ if spons:sponsored }}
+						<div class="flik">
+								<span>
+										Sponsrad nyhet
+									</span>
+							</div>
+				{{ endif }}
+
+				<div class="entry__img-holder post-list__img-holder card__img-holder" style="background-image: url({{ glide:spons:intro_image width='400' }})">
+					<a href="{{ spons:url }}" class="thumb-url"></a>
+					<img data-src="{{ glide:spons:intro_image width='400' fit='crop' q='90' }}" src="/img/empty.png" alt="" class="entry__img d-none lazyload">
+
+						<a class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner entry__meta-category--blue" href="/nyheter/{{spons:categories}}{{slug}}{{/spons:categories}}">
+						{{ spons:categories }}
+							{{ title }}
+						{{ /spons:categories }}
+					</a>
+
+				</div>
+
+				<div class="entry__body post-list__body card__body">
+
+
+
+					<div class="entry__header">
+						<h2 class="entry__title">
+							{{ if spons:puff_font_size }}
+									<a href="{{spons:url}}" style="font-size: {{ spons:puff_font_size }}px;">{{ spons:title }}</a>
+							{{ else }}
+									<a href="{{spons:url}}">{{ spons:title }}</a>
+							{{ endif }}
+
+						</h2>
+
+				<div class="ingress">
+						{{spons:ingress}}
+				</div>
+						<ul class="entry__meta">
+							<!-- <li class="entry__meta-views">
+								<i class="ui-eye"></i>
+								<span>{{ spons:views }}</span>
+							</li> -->
+						</ul>
+					</div>
+					<div class="entry__excerpt">
+						{{ tag:spons:long_form where="type:text" limit="1" }}
+											<p>{{ spons:text | macro:summary }}</p>
+									{{ /tag:spons:long_form }}
+					</div>
+				</div>
+			</article>
+{{/collection:articles}}
+{{endif}}

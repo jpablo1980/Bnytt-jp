@@ -1,0 +1,44 @@
+sections:
+  main:
+    display: Main
+    fields:
+      posts:
+        type: integer
+        display: 'Number of Posts'
+        width: 25
+      content:
+        type: markdown
+      utvald_kategori_1:
+        max_items: 1
+        label: '{{ title }} ({{ count }})'
+        taxonomy: categories
+        mode: panes
+        type: taxonomy
+        width: 25
+        display: Utvald kategori 1
+      utvald_kategori_2:
+        max_items: 1
+        label: '{{ title }} ({{ count }})'
+        taxonomy: categories
+        mode: panes
+        type: taxonomy
+        width: 25
+        display: Utvald kategori 2
+      utvald_kategori_3:
+        max_items: 1
+        label: '{{ title }} ({{ count }})'
+        taxonomy: categories
+        mode: panes
+        type: taxonomy
+        width: 25
+        display: Utvald kategori 3
+      utvald_kategori_4:
+        max_items: 1
+        label: '{{ title }} ({{ count }})'
+        taxonomy: categories
+        mode: panes
+        type: taxonomy
+        width: 25
+        display: Utvald kategori 4
+taxonomies: true
+title: Startsida

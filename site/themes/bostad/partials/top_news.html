@@ -1,0 +1,88 @@
+<section class="section tab-post mb-16">
+  {{ collection:articles taxonomy:tags="Toppnyhet" limit="1" sort="date:desc" }}
+  {{ section:page_styles}}
+  {{ if topnews_font_size }}
+  <style>
+    @media screen and (min-width: 640px) {
+
+      h2.entry__title.topnews a {
+        font-size: {{ topnews_font_size }}px;
+      }
+    }
+  </style>
+
+  {{ else }}
+  <style>
+    @media screen and (min-width: 640px) {
+      h2.entry__title.topnews a {
+        font-size: 48px;
+      }
+    }
+  </style>
+
+  {{ endif }}
+  {{ /section:page_styles }}
+  <!-- tab content -->
+  <div class="tabs__content tabs__content-trigger tab-post__tabs-content">
+    <div class="tabs__content-pane tabs__content-pane--active" id="tab-all">
+      <div class="row card-row">
+        <div class="col-md-12">
+          <article class="entry card {{ if sponsored }}sponsored{{ endif }}">
+            {{ if sponsored }}
+            <div class="flik">
+              <span>
+                Sponsrad nyhet
+              </span>
+            </div>
+            {{ endif }}
+            <div class="entry__img-holder card__img-holder">
+              <a href="{{ url }}">
+                <div class="thumb-container thumb-50">
+                  <img
+                    data-src="{{ intro_image }}"
+                    src="img/empty.png"
+                    class="entry__img lazyload"
+                    alt=""
+                  />
+                </div>
+              </a>
+              <a
+                href="#"
+                class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner entry__meta-category--green"
+                >{{ categories }}
+                {{ title }}
+                {{ /categories }}</a
+              >
+            </div>
+
+            <div class="entry__body card__body">
+              <div class="entry__header">
+                <h2 class="entry__title topnews">
+                  <a href="{{ url }}">{{ title }}</a>
+                </h2>
+                <ul class="entry__meta">
+                  <!-- <li class="entry__meta-views">
+                    <i class="ui-eye"></i>
+                    <span>{{ views }}</span>
+                  </li> -->
+                  <li class="entry__meta-date">
+                    {{ date format="M j, Y" }}
+                  </li>
+                </ul>
+              </div>
+              <div class="entry__excerpt">
+                <p>{{ ingress }}</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+    <!-- end pane 1 -->
+
+    <!-- end pane 2 -->
+  </div>
+  <!-- end tab content -->
+
+  {{ /collection:articles }}
+</section>

@@ -1,0 +1,33 @@
+start_page: dashboard
+date_format: Y/n/d
+pagination_size: 50
+widgets:
+  -
+    type: collection
+    collection: articles
+    limit: 5
+    width: full
+  -
+    type: collection
+    collection: ads
+    limit: 5
+    fields:
+      - title
+      - clicks
+    width: 50
+    sort: clicks
+  -
+    type: seo_pro.reports
+    width: 50
+  -
+    type: PowerTools
+    width: 50
+  -
+    type: form
+    form: contact
+    limit: 5
+    title: 'Recent Submissions'
+    width: full
+    fields:
+      - name
+      - email

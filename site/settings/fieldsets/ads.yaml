@@ -1,0 +1,64 @@
+sections:
+  main:
+    display: Main
+    fields:
+      title:
+        display: Namn
+        type: text
+        localizable: true
+        width: 50
+      typ:
+        options:
+          top: 'Top Banner'
+          middle: 'Mitten Banner'
+          small_middle: 'Liten Mitten Annons'
+          side: 'Sido Annons'
+          fairs: Fairs
+          news_feed: Nyhetsflöde
+        type: select
+        width: 25
+        display: Typ
+        default: top
+      slug:
+        display: Slug
+        type: text
+        width: 25
+      aktiv:
+        type: toggle
+        width: 33
+        display: Aktiv
+      views:
+        type: integer
+        width: 33
+        display: Views
+        default: '0'
+      clicks:
+        type: integer
+        width: 33
+        display: Clicks
+        default: '0'
+      regioner:
+        collection:
+          - region
+        mode: panes
+        type: collection
+        display: Regioner
+      destination_url:
+        type: text
+        display: Url
+      bild:
+        container: main
+        folder: img/annonser
+        restrict: true
+        max_files: 1
+        mode: grid
+        type: assets
+        display: Bild
+      global:
+        type: toggle
+        display: Global
+        default: '0'
+taxonomies: true
+title: Ads
+create_title: 'Skapa annons'
+hide: true

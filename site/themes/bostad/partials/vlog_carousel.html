@@ -1,0 +1,55 @@
+{{ cache for="12 hours" scope="site" }}
+{{ collection:articles limit="10" artikel_typ:is="podd" as="vlog" }}
+
+{{ if no_results }}
+<p>Tyvärr, så finnes inga videloggar.</p>
+{{ /if }}
+
+{{ vlog }}
+
+<article class="entry thumb thumb--size-1">
+  <div
+    class="entry__img-holder thumb__img-holder"
+    style="background-image: url('{{ glide:intro_image width='400' }}');"
+  >
+    <div class="bottom-gradient"></div>
+    <div class="thumb-text-holder">
+      <h2 class="thumb-entry-title">
+        <a href="{{ url }}">{{ title }}</a>
+      </h2>
+    </div>
+    <a href="{{ url }}" class="thumb-url"></a>
+  </div>
+</article>
+
+{{ /vlog }}
+
+{{ /collection:articles }}
+
+{{ collection:articles limit="10" artikel_typ:is="vlog" as="vlog" }}
+
+{{ if no_results }}
+<p>Tyvärr, så finnes inga videloggar.</p>
+{{ /if }}
+
+{{ vlog }}
+
+<article class="entry thumb thumb--size-1">
+  <div
+    class="entry__img-holder thumb__img-holder"
+    style="background-image: url('{{ glide:intro_image width='400' }}');"
+  >
+    <div class="bottom-gradient"></div>
+    <div class="thumb-text-holder">
+      <h2 class="thumb-entry-title">
+        <a href="{{ url }}">{{ title }}</a>
+      </h2>
+    </div>
+    <a href="{{ url }}" class="thumb-url"></a>
+  </div>
+</article>
+
+{{ /vlog }}
+
+{{ /collection:articles }}
+{{ /cache }}

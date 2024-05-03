@@ -1,0 +1,38 @@
+{{ collection:region limit="1" :slug:is="segment_2" scope="region"}}
+<aside class="widget widget-popular-posts">
+            <h4 class="widget-title">Mest lästa - {{ region:title }}<br>
+						<small style="color:#999">Senaste 90 dagarna</small></h4>
+            <ul class="post-list-small">
+              {{ collection:articles filter="newbies" days="90" scope="article" limit="4" :region:contains="region:id" sort="views:desc" }}
+
+				<li class="post-list-small__item">
+                <article class="post-list-small__entry clearfix">
+                  <div class="post-list-small__img-holder">
+                    <div class="thumb-container thumb-100">
+                      <a href="/region/{{segment_2}}/{{article:categories}}{{slug}}{{/article:categories}}/{{article:date format="Y"}}-{{article:date format="m"}}-{{article:date format="d"}}-{{article:slug}}">
+                        <img data-src="{{ glide:article:intro_image width='180' height='180' fit='crop' q='90' }}" src="img/empty.png" alt="" class="lazyload">
+                      </a>
+                    </div>
+                  </div>
+                  <div class="post-list-small__body">
+                    <h3 class="post-list-small__entry-title">
+                      <a href="/region/{{segment_2}}/{{article:categories}}{{slug}}{{/article:categories}}/{{article:date format="Y"}}-{{article:date format="m"}}-{{article:date format="d"}}-{{article:slug}}">{{article:title}}</a>
+                    </h3>
+                    <ul class="entry__meta">
+                      <li class="entry__meta-views">
+                        <i class="ui-eye"></i>
+                        <span>{{ article_views:tag id=id }}</span>
+                      </li>
+                      <li class="entry__meta-date">
+			                   	{{ article:date format="M j, Y" }}
+                      </li>
+                    </ul>
+                  </div>
+                </article>
+              </li>
+
+	        {{ /collection:articles }}
+
+            </ul>
+          </aside>
+{{ /collection:region }}

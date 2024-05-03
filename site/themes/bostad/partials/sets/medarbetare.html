@@ -1,0 +1,37 @@
+{{ section:page_scripts }}
+<script>
+  function hover_{ { namn | camelize } } () {
+  	$("#img_{{ namn | camelize }}").attr("src", "{{ glide:bild_2 width="300" height="300"  }}");
+  }
+
+  function unhover_{ { namn | camelize } } () {
+  	$("#img_{{ namn | camelize }}").attr("src", "{{ glide:bild_1 width="300" height="300" filter="greyscale"}}");
+  }
+</script>
+{{ /section:page_scripts }}
+
+<div
+  class="card w-75 medarbetare mb-4"
+  onmouseover="hover_{{ namn | camelize }}();"
+  onmouseout="unhover_{{ namn | camelize }}();"
+>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-4">
+        <img id="img_{{ namn | camelize }}" src="{{ glide:bild_1 width="300" height="300" filter="greyscale"
+
+        }}" class="card-img-top {{ size | lower }}
+        {{ if caption }}captioned{{ /if }}" alt="{{ caption }}">
+      </div>
+      <div class="col-md-8">
+        <h5 class="card-title mt-3">{{ namn }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ titel }}</h6>
+        <p class="card-text">
+          <span>{{if tel}}{{ tel }}{{ endif }}</span
+          ><br />
+          <span>{{ e_post }}</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

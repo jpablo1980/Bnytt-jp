@@ -1,0 +1,21 @@
+<!-- Breadcrumbs -->
+    <div class="container">
+    	<ul class="breadcrumbs">
+		    {{ nav:breadcrumbs }}
+		    
+		    	{{ if is_current }}
+					<li class="breadcrumbs__item breadcrumbs__item--current">
+						{{ title }}
+					</li>
+
+		    	{{ else }}
+		    	<li class="breadcrumbs__item">
+					<a href="{{ url }}" class="breadcrumbs__url">{{ title }}</a>
+				</li>
+		    	{{ /if }}
+		        
+		    
+		    {{ /nav:breadcrumbs }}
+		</ul>
+     
+    </div>

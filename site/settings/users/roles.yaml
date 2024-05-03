@@ -1,0 +1,14 @@
+d32e14fb-08c9-44c2-aaf8-21200852bafd:
+  title: Admin
+  permissions:
+    - super
+34382303-3daa-4b18-b3de-ca88947dbdc2:
+  title: Editor
+  slug: editor
+  permissions:
+    - 'cp:access'
+    - 'content:view_drafts_on_frontend'
+    - 'collections:articles:view'
+    - 'collections:articles:edit'
+    - 'collections:articles:create'
+    - 'collections:articles:delete'

@@ -1,0 +1,119 @@
+{{partial:latest}}
+
+
+<div class="main-container container pt-24" id="main-container">         
+
+      <div class="row">
+
+        <!-- Posts -->
+        <div class="col-lg-8 blog__content mb-72">
+
+          <!-- Worldwide News -->
+          <section class="section">
+            <div class="title-wrap">
+              <h3 class="section-title">Nyheter - {{title}}</h3>
+              <div class="tabs tab-post__tabs"> 
+                <ul class="tabs__list">
+                  <li class="tabs__item {{ if segment_1 == "nyheter" && !segment_2 }}tabs__item--active {{ /if }}">
+                    <a href="#tab-all" class="tabs__trigger">Alla</a>
+                  </li>
+
+                  {{ taxonomy:categories sort="ordning" }}
+                    <li class="tabs__item {{ if segment_1 == "nyheter" && segment_2 == slug }} tabs__item--active {{ /if }}">
+                      <a href="/nyheter{{ link :to="slug" }}" class="tabs__trigger">{{ title }}</a>
+                    </li>
+                  {{ /taxonomy:categories }}
+                  
+                  
+                </ul> <!-- end tabs -->
+              </div>
+            </div>
+
+            {{ collection:articles as="articles" limit="10" paginate="true" artikel_typ:is="nyhet" :taxonomy:categories="categories" }}
+
+             {{ if no_results }}
+                <p>Inga artiklar hittades.</p>
+            {{ /if }}
+              
+                {{ articles }}
+                  {{ partial:article_feed }}
+                {{ /articles }}
+
+                {{ partial:pagination }}
+
+            {{ /collection:articles }}
+
+          </section> <!-- end worldwide news -->
+
+          
+
+        </div> <!-- end posts -->
+
+        <!-- Sidebar -->
+        <aside class="col-lg-4 sidebar sidebar--right">
+
+
+           <!-- Widget Newsletter -->
+           {{ partial:newsletter }}
+           <!-- end widget newsletter -->
+
+           <!-- Widget Popular Posts -->
+          {{partial:most_read}}
+           <!-- end widget popular posts -->
+
+          <!-- Widget Popular Posts -->
+          {{partial:reportage}}
+           <!-- end widget popular posts -->
+
+        <!-- Widget Newsletter -->
+           {{ partial:massor }}
+           <!-- end widget newsletter -->
+
+           <!-- Widget Popular Posts -->
+            {{ partial:podcasts }}
+           <!-- end widget popular posts -->
+
+          <!-- Widget Popular Posts -->
+            {{ partial:vlog }}
+           <!-- end widget popular posts -->
+
+
+          <!-- Widget Side ads  -->
+            {{ partial:side_ads }}
+           <!-- end widget side ads  -->
+          
+          <!-- Widget Socials -->
+           {{# partial:follow #}}
+           <!-- end widget socials -->
+
+        </aside> <!-- end sidebar -->
+  
+      </div>
+
+
+      <div class="text-center pb-48">
+          {{ partial:bottom_ad }}
+      </div>
+
+
+      <section class="section mb-0">
+        <div class="title-wrap title-wrap--line title-wrap--pr">
+          <h3 class="section-title">Senaste nytt från BoPodden &amp; BoVloggen</h3>
+        </div>
+
+        <!-- Slider -->
+        <div id="owl-posts" class="owl-carousel owl-theme owl-carousel--arrows-outside">
+
+          {{ partial:vlog_carousel }}
+
+        </div> <!-- end slider -->
+
+      </section>
+
+
+      <!-- Utvalda kategorier -->
+      {{ partial:utvalda_kategorier }}
+      <!-- End Utvalda kategorier -->
+
+
+      </div>            
